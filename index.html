@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+    />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>zuoye</title>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        #wrap {
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+        }
+        .topbar {
+            background: #f1f1f1;
+            height: 50px;
+            border-bottom: 1px solid #fff;
+            line-height: 50px;
+            text-align: center;
+            color: #323237;
+            margin: 10px;
+
+        }
+        .iput{
+            height:80px;
+            width:80%;
+            margin: 10px;
+            
+        }
+    </style>
+</head>
+
+<body>
+<h1>实操作业</h1>
+<div id="wrap">
+    <header></header>
+    <section>
+        <div class="iput">
+            <p>自定义事件</p>
+            <input type="text" placeholder="请输入搜索关键词" id="keyWord"/>
+            <button id="search">搜索</button>
+        </div>
+        <div class="iput">
+            <p>设置用户属性</p>
+            <input type="text" placeholder="年龄" id="age"/>
+            <button id="profile">提交</button>
+        </div>
+        <div class="iput">
+            <p>登录或注册接口</p>
+            <input type="text" placeholder="用户 id" id="userId"/>
+            <button id="login">登录</button>
+        </div>
+        <div id="logout" class="topbar">
+            用户登出logout
+        </div>>
+
+    </section>
+
+</div>
+
+</body>
+<script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+    heap.load("1874727659");
+</script>
+
+<script type="text/javascript">
+
+    document.getElementById("search").onclick=function(){
+        //自定义搜索事件属性
+        sa.track("search",{
+            searchKeyWord:document.getElementById("keyWord").value
+        })
+    }
+    document.getElementById("profile").onclick=function(){
+        sa.setProfile({
+            age:document.getElementById("age").value
+        })
+    }
+    document.getElementById("login").onclick=function(){
+        sa.login(document.getElementById("userId").value)
+    }
+    document.getElementById("logout").onclick=function(){
+        sa.logout()
+    }
+
+</script>
+
+<script>
+    (function(para) {
+        var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script',x = null,y = null;
+        if(typeof(w['sensorsDataAnalytic201505']) !== 'undefined') {
+            return false;
+        }
+        w['sensorsDataAnalytic201505'] = n;
+        w[n] = w[n] || function(a) {return function() {(w[n]._q = w[n]._q || []).push([a, arguments]);}};
+        var ifs = ['track','quick','register','registerPage','registerOnce','trackSignup', 'trackAbtest', 'setProfile','setOnceProfile','appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify','login','logout','trackLink','clearAllRegister','getAppStatus'];
+        for (var i = 0; i < ifs.length; i++) {
+            w[n][ifs[i]] = w[n].call(null, ifs[i]);
+        }
+        if (!w[n]._t) {
+            x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+            x.async = 1;
+            x.src = p;
+            x.setAttribute('charset','UTF-8');
+            w[n].para = para;
+            y.parentNode.insertBefore(x, y);
+        }
+    })({
+        sdk_url: 'https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.15.13/sensorsdata.min.js',
+        heatmap_url: 'https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.15.13/heatmap.min.js',
+        name: 'sa',
+        source_channel:['scyw_web','sbclnb_web'],
+        server_url: 'http://10.120.138.239:8106/sa?project=production',
+        heatmap:{scroll_notice_map:'not_collect'}
+    });
+    sa.quick('autoTrack');
+</script>
+
+
+</html>
