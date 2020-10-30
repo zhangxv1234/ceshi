@@ -42,6 +42,15 @@
         }
     </style>
 
+<!-- SensorsData-->    
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.15.23/sensorsdata.min.js"></script>
+<script charset="UTF-8">
+var sensors = window['sensorsDataAnalytic201505'];
+sensors.init({
+    server_url: 'http://localhost:8106/sa'    
+});
+sensors.quick('autoTrack');
+</script>
 
 <!-- GrowingIO Analytics code version 2.1 -->
 <!-- Copyright 2015-2018 GrowingIO, Inc. More info available at http://www.growingio.com -->
