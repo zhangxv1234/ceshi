@@ -41,9 +41,7 @@
             
         }
     </style>
-
-<!-- SensorsData-->    
-    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.15.23/sensorsdata.min.js"></script>
+<script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/sa-sdk-javascript@1.15.23/sensorsdata.min.js"></script>
 <script charset="UTF-8">
 var sensors = window['sensorsDataAnalytic201505'];
 sensors.init({
@@ -82,16 +80,23 @@ gio('send');
             <p>自定义事件</p>
             <input type="text" placeholder="请输入搜索关键词" id="keyWord"/>
             <button id="search">搜索</button>
+            <button id="search">搜索</button>
         </div>
         <div class="iput">
             <p>设置用户属性</p>
             <input type="text" placeholder="年龄" id="age"/>
+            <button id="profile">提交</button>
             <button id="profile">提交</button>
         </div>
         <div class="iput">
             <p>登录或注册接口</p>
             <input type="text" placeholder="用户 id" id="userId"/>
             <button id="login">登录</button>
+            <button id="login">提交</button>
+             <p>登录或注册接口</p>
+            <input type="text" placeholder="用户 id" id="userId"/>
+            <button id="login">登录</button>
+            <button id="login">提交</button>
         </div>
         <div id="logout" class="topbar">
             用户登出logout
@@ -128,6 +133,7 @@ gio('send');
     }
 
 </script>
+
 
 
 </html>
